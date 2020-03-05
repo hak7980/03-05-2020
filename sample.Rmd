@@ -19,7 +19,7 @@ sheets_deauth()
 
 ```
 
-```{r plot, echo = F}
+```{r plot set-up, include = F}
 
 x <- 
   
@@ -32,6 +32,10 @@ x <-
   arrange(desc(red)) %>%
   
   mutate(percent_red = red/(red+white))
+
+```
+
+```{r plot, echo= FALSE}
 
  plot <- 
    
