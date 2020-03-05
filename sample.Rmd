@@ -14,6 +14,10 @@ library(tidyverse)
 library(googlesheets4)
 
 library(janitor)
+library(purrr)
+library(tibble)
+library(stringr)
+library(forcats)
 
 sheets_deauth()
 
@@ -64,6 +68,32 @@ xt <- tibble(bean_id = 1:1000,
        color = c(rep("Red", 200), 
                  
                  rep("White", 800)))
+
+
+
+shovel <- function(n) {
+    sample_n(xt, n, replace = TRUE)
+}
+
+t <- shovel(10)
+
+virtual_shovel <- shovel(25) %>%
+    summarize(sum(color =="Red")/sum(n()))
+
+newxt <- xt %>%
+  sample_n(size = 25, reps = 51)%>%
+  mutate(red_sum = sum(color == "Red"))%>%
+  mutate(perc_red = red_sum / 25)
+
+# fell off after this point. 
+
+sim_results <- tibble(sim_ID = 1:3, 
+                      )
+xttibble <- tibble()
+
+
+
+
 
 
 ```
