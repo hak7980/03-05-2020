@@ -43,10 +43,28 @@ x <-
   
   ggplot(aes(percent_red)) +
   
-  geom_bar()
+  geom_histogram(bins=20) +
+  
+  labs(title = "Percent of Red Drawn from a Sample of 25",
+       subtitle = "Drawn Randomly",
+       xtitle = "Percentage of Red Beads Drawn out of 25",
+       ytitle = "Frequency")
  
  plot
 
+
+
 ```
 
+
+```{r function, include =F}
+
+xt <- tibble(bean_id = 1:1000,
+       
+       color = c(rep("Red", 200), 
+                 
+                 rep("White", 800)))
+
+
+```
 
